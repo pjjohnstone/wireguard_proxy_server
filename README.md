@@ -33,7 +33,7 @@ You can also pass in the name of the resource group you want to store your image
 
 `-var "ssh_port=<some random high port number>`
 
-These default to "packerimages-rg" and "22389" respectively.
+These default to `packerimages-rg` and `22389` respectively.
 
 ### Terraform up the server
 
