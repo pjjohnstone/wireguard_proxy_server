@@ -14,7 +14,7 @@
       "image_offer": "UbuntuServer",
       "image_sku": "18.04-LTS",
       "location": "{{user `location`}}",
-      "vm_size": "Standard_B1LS",
+      "vm_size": "Standard_A1_v2",
       "managed_image_name": "{{user `managed_image_name`}}",
       "managed_image_resource_group_name": "{{user `managed_image_resource_group_name`}}"
     }
@@ -22,6 +22,7 @@
   "provisioners": [
     {
       "type": "shell",
+      "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "scripts": [
         "scripts/prereqs.sh",
         "scripts/setup_wg.sh"
