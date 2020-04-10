@@ -16,6 +16,10 @@ variable "admin_username" {
 
 variable "ssh_allowed_cidr" {}
 
+variable "ssh_port" {
+  default = "22"
+}
+
 variable "wireguard_listen_port" {
   default = "51820"
 }

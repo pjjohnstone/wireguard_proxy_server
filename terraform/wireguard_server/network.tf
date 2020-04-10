@@ -45,7 +45,7 @@ resource "azurerm_network_security_group" "sec_group" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "22"
+    destination_port_range     = var.ssh_port
     source_address_prefix      = var.ssh_allowed_cidr
     destination_address_prefix = "*"
   }

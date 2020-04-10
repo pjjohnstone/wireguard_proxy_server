@@ -1,4 +1,5 @@
 add-apt-repository ppa:wireguard/wireguard
-apt update
-apt install wireguard -y
-apt install qrencode -y
+apt-get update
+apt-get upgrade -y
+apt-get install wireguard qrencode htop -y
+apt-get autoremove -y

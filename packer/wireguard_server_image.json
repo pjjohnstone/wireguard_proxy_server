@@ -3,7 +3,8 @@
     "subscription_id": "",
     "location": "northeurope",
     "managed_image_resource_group_name": "packerimages-rg",
-    "managed_image_name": "wgserver"
+    "managed_image_name": "wgserver",
+    "ssh_port": 22389
   },
   "builders": [
     {
@@ -20,6 +21,15 @@
     }
   ],
   "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "environment_vars": ["ssh_port={{user `ssh_port`}}"],
+      "inline": [
+        "sed -i 's/#Port 22/Port $ssh_port/' /etc/ssh/sshd_config && systemctl restart sshd"
+      ],
+      "expect_disconnect": true
+    },
     {
       "type": "shell",
       "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
