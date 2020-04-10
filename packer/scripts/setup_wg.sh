@@ -37,7 +37,6 @@ DNS = 1.1.1.1
 PublicKey = $public_key
 Endpoint = $server_ip:51820
 AllowedIPs = 0.0.0.0/0
-PersistentKeepalive = 25
 EOT
 
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
