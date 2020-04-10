@@ -42,3 +42,6 @@ EOT
 
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
 sysctl -p
+
+wg-quick up wg0
+systemctl enable wg-quick@wg0.service
