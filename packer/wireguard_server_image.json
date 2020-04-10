@@ -26,7 +26,7 @@
       "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
       "environment_vars": ["ssh_port={{user `ssh_port`}}"],
       "inline": [
-        "sed -i 's/#Port 22/Port $ssh_port/' /etc/ssh/sshd_config && systemctl restart sshd"
+        "sed -i \"s/#Port 22/Port $ssh_port/\" /etc/ssh/sshd_config && systemctl restart sshd"
       ],
       "expect_disconnect": true
     },
