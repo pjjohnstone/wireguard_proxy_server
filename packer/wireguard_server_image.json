@@ -23,7 +23,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "environment_vars": ["ssh_port={{user `ssh_port`}}"],
       "inline": [
         "sed -i \"s/#Port 22/Port $ssh_port/\" /etc/ssh/sshd_config && systemctl restart sshd"
@@ -32,10 +32,11 @@
     },
     {
       "type": "shell",
-      "execute_command": "echo 'packer' | sudo -S sh -c '{{ .Vars }} {{ .Path }}'",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "scripts": [
         "scripts/prereqs.sh",
-        "scripts/setup_wg.sh"
+        "scripts/setup_wg.sh",
+        "scripts/cloudflared.sh"
       ]
     },
     {
