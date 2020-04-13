@@ -1,3 +1,4 @@
+#!/bin/bash
 add-apt-repository ppa:wireguard/wireguard
 apt-get update
 apt-get upgrade -y

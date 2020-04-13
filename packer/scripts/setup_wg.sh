@@ -1,3 +1,4 @@
+#!/bin/bash
 mkdir /etc/wireguard/keys
 cd /etc/wireguard/keys
 umask 077
