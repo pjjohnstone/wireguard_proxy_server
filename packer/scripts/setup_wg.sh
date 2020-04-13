@@ -31,7 +31,7 @@ cat <<EOT >> /etc/wireguard/wg0-phone.conf
 [Interface]
 PrivateKey = $phone_privatekey
 Address = 10.0.0.2/32
-DNS = 1.1.1.1
+DNS = 10.0.0.1
 
 [Peer]
 PublicKey = $public_key
