@@ -1,3 +1,4 @@
+#!/bin/bash
 mkdir ~/cloudflared
 wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb -O ~/cloudflared/cloudflared-stable-linux-amd64.deb
 dpkg -i ~/cloudflared/cloudflared-stable-linux-amd64.deb
@@ -12,3 +13,4 @@ proxy-dns-upstream:
 EOF
 
 cloudflared service install
+systemctl start cloudflared.service
