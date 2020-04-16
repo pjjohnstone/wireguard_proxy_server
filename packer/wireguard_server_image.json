@@ -36,7 +36,8 @@
       "scripts": [
         "scripts/prereqs.sh",
         "scripts/setup_wg.sh",
-        "scripts/cloudflared.sh"
+        "scripts/cloudflared.sh",
+        "scripts/pihole.sh"
       ]
     },
     {
