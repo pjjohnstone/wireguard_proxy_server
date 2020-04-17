@@ -5,7 +5,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   location = var.location
-  name     = "${var.prefix}-rg"
+  name     = var.prefix
 
   tags = {
     environment = "Wireguard"
