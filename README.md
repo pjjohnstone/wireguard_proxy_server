@@ -2,7 +2,7 @@
 
 ## TODO
 
-1. Add DNS forwarder, probably Pihole
+1. Fix the IP fixing service DNS issue
 2. Support other cloud providers
 
 ## Requirements
@@ -13,14 +13,6 @@
 
 ## Usage
 
-### Image Resource Group
-
-If you don't already have a resource group to save a managed image you can use the image_rg terraform config to create one.
-
-`cd /terraform/image_rg`
-
-`terraform apply -var "prefix=<a naming prefix of your choice>" -var "location=<an azure datacentre location>"`
-
 ### Create the image with Packer
 
 `cd /packer`
@@ -29,11 +21,11 @@ If you don't already have a resource group to save a managed image you can use t
 
 You can also pass in the name of the resource group you want to store your image in, and a custom ssh port number, e.g.
 
-`-var "managed_image_resource_group_name=<whatever you called the rg>`
+`-var "managed_image_resource_group_name=<an existing rg to store the image>`
 
 `-var "ssh_port=<some random high port number>`
 
-These default to `packerimages-rg` and `22389` respectively.
+These default to `packerimages` and `22389` respectively.
 
 ### Terraform up the server
 
