@@ -17,7 +17,8 @@
       "location": "{{user `location`}}",
       "vm_size": "Standard_A1_v2",
       "managed_image_name": "{{user `managed_image_name`}}",
-      "managed_image_resource_group_name": "{{user `managed_image_resource_group_name`}}"
+      "managed_image_resource_group_name": "{{user `managed_image_resource_group_name`}}",
+      "async_resourcegroup_delete": true
     }
   ],
   "provisioners": [
@@ -31,13 +32,19 @@
       "expect_disconnect": true
     },
     {
+      "type": "file",
+      "source": "files/fixup_server_ip.sh",
+      "destination": "/tmp/fixup_server_ip.sh"
+    },
+    {
       "type": "shell",
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "scripts": [
         "scripts/prereqs.sh",
         "scripts/setup_wg.sh",
         "scripts/cloudflared.sh",
-        "scripts/pihole.sh"
+        "scripts/pihole.sh",
+        "scripts/fix_ip_service.sh"
       ]
     },
     {
