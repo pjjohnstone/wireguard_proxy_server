@@ -2,7 +2,7 @@
   "variables": {
     "subscription_id": "",
     "location": "northeurope",
-    "managed_image_resource_group_name": "packerimages-rg",
+    "managed_image_resource_group_name": "packerimages",
     "managed_image_name": "wgserver",
     "ssh_port": "22389"
   },
